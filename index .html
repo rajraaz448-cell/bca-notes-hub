@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Free BCA Notes PDF | 1st, 2nd, 3rd Year | Download Study Material, DBMS, DS, Web Tech, OS, ML" />
+  <meta name="keywords" content="BCA Notes, BCA PDF, Free Notes, Data Structures, DBMS, Web Technology, OS Notes" />
+  <meta name="author" content="BCA Notes Hub" />
+  <title>BCA Notes Hub - Free PDFs for 1st, 2nd & 3rd Year</title>
+
+  <!-- Favicon (लोगो) -->
+  <link rel="icon" href="https://img.icons8.com/color/48/000000/book.png" type="image/png">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Google AdSense (जगह छोड़ी है, आपको ID डालना है) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+          crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe, #f0fdfa);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2563eb, #0d9488);
+      color: white;
+      padding: 25px 20px;
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    header::after {
+      content: "📚";
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 1.8rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .search-bar {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid #bbb;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .search-bar:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 10px rgba(37, 99, 235, 0.2);
+    }
+
+    .filters {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .filters button {
+      flex: 1;
+      min-width: 130px;
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1rem;
+    }
+
+    .filters button.active {
+      background: linear-gradient(to right, #2563eb, #0d9488);
+      color: white;
+      box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    }
+
+    .filters button:not(.active) {
+      background: #fff;
+      color: #2563eb;
+      border: 2px solid #93c5fd;
+    }
+
+    .filters button:hover:not(.active) {
+      background: #eff6ff;
+      transform: translateY(-2px);
+    }
+
+    /* Ads Section */
+    .ads-container {
+      grid-column: 1 / -1;
+      text-align: center;
+      margin: 25px 0;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    /* Notes Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+      padding: 22px;
+      transition: all 0.3s ease;
+      border: 1px solid #e0e7ff;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+      border-color: #a5b4fc;
+    }
+
+    .card h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.3rem;
+      color: #1e40af;
+      font-weight: 600;
+    }
+
+    .card p {
+      margin: 8px 0;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    .card .downloads {
+      color: #0d9488;
+      font-weight: 600;
+    }
+
+    .card-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .card button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    .btn-view {
+      background: linear-gradient(to right, #3b82f6, #2563eb);
+    }
+
+    .btn-view:hover {
+      background: linear-gradient(to right, #1e40af, #1e3a8a);
+      transform: scale(1.03);
+    }
+
+    .btn-download {
+      background: linear-gradient(to right, #6b7280, #374151);
+    }
+
+    .btn-download:hover {
+      background: linear-gradient(to right, #1f2937, #111827);
+      transform: scale(1.03);
+    }
+
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: #64748b;
+      font-size: 1.2rem;
+      padding: 40px;
+      background: #f8fafc;
+      border-radius: 16px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 50px;
+      color: #64748b;
+      font-size: 0.95rem;
+      background: #ffffff;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Donation Button */
+    .donate-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: linear-gradient(to right, #10b981, #059669);
+      color: white;
+      border-radius: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .donate-btn:hover {
+      background: linear-gradient(to right, #059669, #047857);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        font-size: 1.8rem;
+      }
+      .filters button {
+        min-width: auto;
+        font-size: 0.9rem;
+        padding: 12px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>BCA Notes Hub</header>
+
+  <div class="container">
+    <input type="text" id="search" class="search-bar" placeholder="🔍 Search notes by subject (e.g., DBMS, Data Structures)...">
+
+    <div class="filters">
+      <button class="active" onclick="filterYear(null)">All Years</button>
+      <button onclick="filterYear(1)">1st Year</button>
+      <button onclick="filterYear(2)">2nd Year</button>
+      <button onclick="filterYear(3)">3rd Year</button>
+    </div>
+
+    <!-- Google AdSense Placeholder -->
+    <div class="ads-container">
+      📢 <strong>Ad Space</strong> – Supports the site! (Apply Google AdSense)
+    </div>
+
+    <div id="notesGrid" class="grid"></div>
+  </div>
+
+  <footer>
+    © 2025 BCA Notes Hub | Made with 💙 for BCA Students<br>
+    <a href="mailto:support@bcanoteshub.com">Contact Us</a> | 
+    <a href="#" onclick="alert('Scan QR or use UPI: your-upi@upi')">Donate via UPI</a><br>
+    <a class="donate-btn" href="#" onclick="alert('Thank you for supporting free education! 💙')">Support This Project</a>
+  </footer>
+
+  <script>
+    // नोट्स डेटा
+    const notes = [
+      { subject: "Programming Fundamentals", year: 1, file: "pf_notes.pdf", downloads: 124 },
+      { subject: "Digital Electronics", year: 1, file: "de_notes.pdf", downloads: 89 },
+      { subject: "Mathematics for BCA", year: 1, file: "math_notes.pdf", downloads: 156 },
+      { subject: "Data Structures", year: 2, file: "ds_notes.pdf", downloads: 203 },
+      { subject: "Database Management", year: 2, file: "dbms_notes.pdf", downloads: 178 },
+      { subject: "Operating Systems", year: 2, file: "os_notes.pdf", downloads: 142 },
+      { subject: "Web Technology", year: 3, file: "web_notes.pdf", downloads: 195 },
+      { subject: "Software Engineering", year: 3, file: "se_notes.pdf", downloads: 167 },
+      { subject: "Machine Learning", year: 3, file: "ml_notes.pdf", downloads: 134 }
+    ];
+
+    let selectedYear = null;
+
+    function renderNotes() {
+      const searchTerm = document.getElementById("search").value.toLowerCase();
+      const grid = document.getElementById("notesGrid");
+      grid.innerHTML = "";
+
+      const filtered = notes.filter(note => {
+        const matchYear = selectedYear ? note.year === selectedYear : true;
+        const matchSearch = note.subject.toLowerCase().includes(searchTerm);
+        return matchYear && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="no-results">
+            😔 No notes found for "${searchTerm}".<br>
+            Try searching for: DBMS, Data Structures, Web Tech
+          </div>`;
+        return;
+      }
+
+      filtered.forEach(note => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${note.subject}</h3>
+          <p><strong>Year ${note.year}</strong></p>
+          <p>${note.file}</p>
+          <p class="downloads">📚 ${note.downloads}+ downloads</p>
+          <div class="card-buttons">
+            <button class="btn-view" onclick="viewFile('${note.file}')">👁️ View</button>
+            <button class="btn-download" onclick="downloadFile('${note.file}')">⬇️ Download</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // PDF व्यू और डाउनलोड फंक्शन
+    function viewFile(filename) {
+      window.open(`https://example.com/notes/${filename}`, '_blank');
+    }
+
+    function downloadFile(filename) {
+      const link = document.createElement('a');
+      link.href = `https://example.com/notes/${filename}`;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      // डाउनलोड काउंट बढ़ाएं (अगर बैकएंड होता तो)
+      console.log(`Downloaded: ${filename}`);
+    }
+
+    function filterYear(year) {
+      selectedYear = year;
+      document.querySelectorAll(".filters button").forEach(btn => btn.classList.remove("active"));
+      if (year === null) {
+        document.querySelector(".filters button:first-child").classList.add("active");
+      } else {
+        document.querySelectorAll(".filters button")[year].classList.add("active");
+      }
+      renderNotes();
+    }
+
+    // सर्च बार पर लाइव सर्च
+    document.getElementById("search").addEventListener("input", renderNotes);
+
+    // पेज लोड होते ही नोट्स दिखाएं
+    renderNotes();
+  </script>
+
+  <!-- Google Analytics (अपना ID डालें) -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
+</body>
+</html>
