@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BCA Notes Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe, #f0fdfa);
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #2563eb, #0d9488);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+    .search-bar {
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+    .filters {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .filters button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .filters button.active {
+      background: linear-gradient(to right, #2563eb, #0d9488);
+      color: white;
+    }
+    .filters button:not(.active) {
+      background: #fff;
+      color: #2563eb;
+      border: 2px solid #93c5fd;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    .card h3 {
+      margin: 0 0 10px 0;
+      font-size: 1.25rem;
+      color: #1e40af;
+    }
+    .card p {
+      margin: 0 0 15px 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    .card button {
+      padding: 10px;
+      width: 48%;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .btn-view {
+      background: linear-gradient(to right, #3b82f6, #2563eb);
+    }
+    .btn-download {
+      background: linear-gradient(to right, #6b7280, #374151);
+    }
+    .card-buttons {
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <header>BCA Notes Hub</header>
+  <div class="container">
+    <input type="text" id="search" class="search-bar" placeholder="Search notes by subject...">
+    <div class="filters">
+      <button class="active" onclick="filterYear(null)">All Years</button>
+      <button onclick="filterYear(1)">1st Year</button>
+      <button onclick="filterYear(2)">2nd Year</button>
+      <button onclick="filterYear(3)">3rd Year</button>
+    </div>
+    <div id="notesGrid" class="grid"></div>
+  </div>
+
+  <script>
+    const notes = [
+      { subject: "Programming Fundamentals", year: 1, file: "pf_notes.pdf", downloads: 124 },
+      { subject: "Digital Electronics", year: 1, file: "de_notes.pdf", downloads: 89 },
+      { subject: "Mathematics for BCA", year: 1, file: "math_notes.pdf", downloads: 156 },
+      { subject: "Data Structures", year: 2, file: "ds_notes.pdf", downloads: 203 },
+      { subject: "Database Management", year: 2, file: "dbms_notes.pdf", downloads: 178 },
+      { subject: "Operating Systems", year: 2, file: "os_notes.pdf", downloads: 142 },
+      { subject: "Web Technology", year: 3, file: "web_notes.pdf", downloads: 195 },
+      { subject: "Software Engineering", year: 3, file: "se_notes.pdf", downloads: 167 },
+      { subject: "Machine Learning", year: 3, file: "ml_notes.pdf", downloads: 134 }
+    ];
+
+    let selectedYear = null;
+
+    function renderNotes() {
+      const searchTerm = document.getElementById("search").value.toLowerCase();
+      const grid = document.getElementById("notesGrid");
+      grid.innerHTML = "";
+
+      const filtered = notes.filter(note => {
+        const matchYear = selectedYear ? note.year === selectedYear : true;
+        const matchSearch = note.subject.toLowerCase().includes(searchTerm);
+        return matchYear && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = "<p style='grid-column:1/-1; text-align:center; color:#555; font-size:1.2rem;'>No notes found</p>";
+        return;
+      }
+
+      filtered.forEach(note => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <h3>${note.subject}</h3>
+          <p>Year ${note.year}  ${note.file}</p>
+          <p>${note.downloads} downloads</p>
+          <div class="card-buttons">
+            <button class="btn-view">View</button>
+            <button class="btn-download">Download</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterYear(year) {
+      selectedYear = year;
+      document.querySelectorAll(".filters button").forEach(btn => btn.classList.remove("active"));
+      if (year === null) {
+        document.querySelector(".filters button:first-child").classList.add("active");
+      } else {
+        document.querySelectorAll(".filters button")[year].classList.add("active");
+      }
+      renderNotes();
+    }
+
+    document.getElementById("search").addEventListener("input", renderNotes);
+    renderNotes();
+  </script>
+</body>
+</html>
